@@ -2,6 +2,8 @@ import pygame
 import random
 import math
 
+from assets.design import *
+
 pygame.init()
 
 # Constants Definition
@@ -14,11 +16,6 @@ COLS = 4
 
 RECT_HEIGHT = HEIGHT // ROWS # integer devision
 RECT_WIDTH = WIDTH // COLS # integer devision
-
-OUTLINE_COLOR = (187, 173, 160) # RedGreenBlue
-OUTLINE_THICKNESS = 10
-BACKGROUND_COLOR = (205, 192, 180) # RGB
-FONT_COLOR = (119, 110 ,101) # RGB
 
 FONT = pygame.font.SysFont("comicsans", 60, bold=True)
 MOVE_VELOSITY = 20 # the speed at which the tiles will move - 20 pixels per second
