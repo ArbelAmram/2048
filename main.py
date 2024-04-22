@@ -7,7 +7,6 @@ from assets.design import *
 pygame.init()
 
 FONT = pygame.font.SysFont("comicsans", 60, bold=True)
-MOVE_VEL = 20
 
 WINDOW = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption("2048")
