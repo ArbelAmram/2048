@@ -116,14 +116,15 @@ def main(window):
                 break
 
             if event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_LEFT:
-                    move_tiles(window, tiles, clock, "left")
-                if event.key == pygame.K_RIGHT:
-                    move_tiles(window, tiles, clock, "right")
-                if event.key == pygame.K_UP:
-                    move_tiles(window, tiles, clock, "up")
-                if event.key == pygame.K_DOWN:
-                    move_tiles(window, tiles, clock, "down")
+                match event.key:
+                    case pygame.K_LEFT:                
+                        move_tiles(window, tiles, clock, "left")
+                    case pygame.K_RIGHT:
+                        move_tiles(window, tiles, clock, "right")
+                    case pygame.K_UP:
+                        move_tiles(window, tiles, clock, "up")
+                    case pygame.K_DOWN:
+                        move_tiles(window, tiles, clock, "down")
 
         draw(window, tiles)
 
