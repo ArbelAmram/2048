@@ -4,7 +4,7 @@ import random
 pygame.init()
 
 from entities import Tile
-from helpers import *
+from utils.helpers import *
 from assets.design import *
 
 WINDOW = pygame.display.set_mode((WIDTH, HEIGHT))
