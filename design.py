@@ -1,3 +1,5 @@
+import pygame
+
 OUTLINE_THICKNESS = 10
 
 # Color defined by RGB
@@ -15,3 +17,5 @@ RECT_WIDTH = WIDTH // COLS # integer devision
 FPS = 60 # frames per second
 
 MOVE_VEL = 20 # the speed at which the tiles will move - 20 pixels per second
+
+
