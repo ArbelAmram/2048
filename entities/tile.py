@@ -1,7 +1,7 @@
 import pygame
 import math
 
-from design import *
+from assets.design import *
 
 FONT = pygame.font.SysFont("comicsans", 60, bold=True)
 

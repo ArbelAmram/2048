@@ -1,8 +1,8 @@
 import random
 import pygame
 
-from tile import Tile
-from design import *
+from entities import Tile
+from assets.design import *
 
 
 def get_random_pos(tiles):

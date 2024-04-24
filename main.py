@@ -3,9 +3,9 @@ import random
 
 pygame.init()
 
-from tile import *
+from entities import Tile
 from helpers import *
-from design import *
+from assets.design import *
 
 WINDOW = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption("2048")
