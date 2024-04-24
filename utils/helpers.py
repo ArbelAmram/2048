@@ -1,5 +1,4 @@
 import random
-import pygame
 
 from entities import Tile
 from assets.design import *
