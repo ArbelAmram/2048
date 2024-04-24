@@ -1,5 +1,5 @@
-# This file is referring this folder as a python package
-# This file will run when entities is imported
+# This file is referring 'entities' folder as a python package
+# When any file from 'entities' is imported __init__.py file will run first
 
 from .tile import *
 
