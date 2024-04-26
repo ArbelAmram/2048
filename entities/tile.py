@@ -3,7 +3,7 @@ import math
 
 from assets import RECT_HEIGHT, RECT_WIDTH, FONT_COLOR
 
-FONT = pygame.font.SysFont("comicsans", 60, bold=True)
+FONT = pygame.font.SysFont("comicsans", 60, bold = True)
 
 class Tile:
     COLORS = [
