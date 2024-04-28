@@ -1,1 +1,1 @@
-![image](https://github.com/ArbelAmram/2048/assets/51449659/4d5a084f-4b28-4ba3-acc1-120d3f04807e)
+![image](https://github.com/ArbelAmram/2048/assets/51449659/0668fb7f-8610-490d-8405-f1c37bc2d4cd)
