@@ -46,7 +46,6 @@ Watch a demo of the project [here](https://github.com/arbelamram/2048/assets/514
 ### Running Tests
 To run the tests, use the following commands:
 ```sh
-# For Python
 pytest
 ```
 
@@ -71,9 +70,7 @@ cd project
 ```
 3. Install dependencies:
 ```sh
-npm install  # For JavaScript projects
-pip install -r requirements.txt  # For Python projects
-./gradlew build  # For Java projects
+pip install -r requirements.txt
 ```
 
 ##
@@ -81,9 +78,7 @@ pip install -r requirements.txt  # For Python projects
 ### Usage
 To start the project, run the following command:
 ```sh
-npm start  # For JavaScript projects
-python main.py  # For Python projects
-./gradlew run  # For Java projects
+python main.py
 ```
 
 ##
