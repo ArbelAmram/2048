@@ -15,8 +15,8 @@ Watch a demo of the project [here](https://github.com/arbelamram/2048/assets/514
 ### Table of Contents
 - [Technologies](#technologies)
 - [Tools](#tools)
-- [Tests](#tests)
 - [Object-Oriented Programming (OOP)](#object-oriented-programming-oop)
+- [Tests](#tests)
 - [Installation](#installation)
 - [Usage](#usage)
 - [Contributing](#contributing)
@@ -28,13 +28,19 @@ Watch a demo of the project [here](https://github.com/arbelamram/2048/assets/514
 - **Programming Language:** Python
 - **Library:** Pgame
 
-##
-
 ### Tools
 - **Version Control:** Git
 - **IDE:** Visual Studio Code
 - **Containerization:** Docker
 - **Testing:** PyTest
+
+##
+
+### Object-Oriented Programming (OOP)
+- **Encapsulation:** Use of private variables and getter/setter methods.
+- **Inheritance:** Base classes and derived classes in Python.
+- **Polymorphism:** Overriding methods in child classes in Java.
+- **Abstraction:** Abstract classes and interfaces in Python.
 
 ##
 
@@ -48,15 +54,6 @@ To run the tests, use the following commands:
 ```sh
 pytest
 ```
-
-##
-
-### Object-Oriented Programming (OOP)
-- **Encapsulation:** Use of private variables and getter/setter methods in Java classes.
-- **Inheritance:** Base classes and derived classes in Python.
-- **Polymorphism:** Overriding methods in child classes in Java.
-- **Abstraction:** Abstract classes and interfaces in Java and Python.
-
 ##
 
 ### Installation
