@@ -36,8 +36,12 @@ class Tile:
         Determine the color of the tile based on its value.
         '''
         color_index = int(math.log2(self.value)) - 1
-        return COLORS[color_index]
-
+        if color_index < len(COLORS):
+            return COLORS[color_index]
+        else:
+            # Return a default color if out of range
+            return (255, 255, 255)
+        
     def draw(self, window):
         '''
         Draw the tile on the given window.
@@ -72,12 +76,14 @@ class Tile:
         self.y += delta[1]
         self.set_pos()
 
-    # def update_value(self, new_value):
-    #     '''
-    #     Update the tile's value and recalculate its color.
-    #     Error Handling - change the tile's value and update its color
-    #     '''
-    #     if new_value <= 0 or (new_value & (new_value - 1)) != 0:
-    #         raise ValueError("Tile value must be a power of 2 greater than 0.")
-    #     self.value = new_value
-    #     self.color = self._get_color()
+    def update_value(self, new_value):
+        '''
+        Update the tile's value and recalculate its color.
+        Error Handling - change the tile's value and update its color
+        '''
+
+        if new_value <= 0 or (new_value & (new_value - 1)) != 0:
+            raise ValueError("Tile value must be a power of 2 greater than 0.")
+        
+        self.value = new_value
+        self.color = self._get_color()
