@@ -10,7 +10,9 @@ Dive into the world of 2048 and challenge yourself with this Python implementati
 
 Watch a demo of the project [here](https://github.com/arbelamram/2048/assets/51449659/b3046508-d94f-406c-91e1-7957a5153954)
 
-## Table of Contents
+##
+
+### Table of Contents
 - [Technologies](#technologies)
 - [Tools](#tools)
 - [Tests](#tests)
@@ -20,41 +22,45 @@ Watch a demo of the project [here](https://github.com/arbelamram/2048/assets/514
 - [Contributing](#contributing)
 - [License](#license)
 
-## Technologies
+##
+
+### Technologies
 - **Programming Language:** Python
 - **Library:** Pgame
 
-## Tools
+##
+
+### Tools
 - **Version Control:** Git
 - **IDE:** Visual Studio Code
 - **Containerization:** Docker
-- **Testing:** Jest, PyTest, JUnit
+- **Testing:** PyTest
 
-## Tests
-- **Unit Testing:** Jest for JavaScript, PyTest for Python, JUnit for Java
+##
+
+### Tests
+- **Unit Testing:** PyTest for Python
 - **Integration Testing:** Postman for API testing
 - **End-to-End Testing:** Selenium for web applications
 
 ### Running Tests
 To run the tests, use the following commands:
 ```sh
-# For JavaScript
-npm test
-
 # For Python
 pytest
-
-# For Java
-./gradlew test
 ```
 
-## Object-Oriented Programming (OOP)
+##
+
+### Object-Oriented Programming (OOP)
 - **Encapsulation:** Use of private variables and getter/setter methods in Java classes.
 - **Inheritance:** Base classes and derived classes in Python.
 - **Polymorphism:** Overriding methods in child classes in Java.
 - **Abstraction:** Abstract classes and interfaces in Java and Python.
 
-## Installation
+##
+
+### Installation
 1. Clone the repository:
 ```sh
 git clone https://github.com/username/project.git
@@ -70,7 +76,9 @@ pip install -r requirements.txt  # For Python projects
 ./gradlew build  # For Java projects
 ```
 
-## Usage
+##
+
+### Usage
 To start the project, run the following command:
 ```sh
 npm start  # For JavaScript projects
@@ -78,7 +86,9 @@ python main.py  # For Python projects
 ./gradlew run  # For Java projects
 ```
 
-## Contributing
+##
+
+### Contributing
 Contributions are welcome! Please follow these steps:
 1. Fork the repository.
 2. Create a new branch (`git checkout -b feature-branch`).
@@ -86,5 +96,7 @@ Contributions are welcome! Please follow these steps:
 4. Push to the branch (`git push origin feature-branch`).
 5. Create a new Pull Request.
 
-## License
+##
+
+### License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
