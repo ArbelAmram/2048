@@ -123,7 +123,7 @@ def move_tiles(window, tiles, clock, direction):
                 if merge_check(tile, next_tile):
                     tile.move(delta)
                 else:
-                    next_tile.update_value(next_tile.value * 2)  # Use update_value method
+                    next_tile.update_value(next_tile.value * 2)
                     sorted_tiles.pop(i)
                     blocks.add(next_tile)
             elif move_check(tile, next_tile):
