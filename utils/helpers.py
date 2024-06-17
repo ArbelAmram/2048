@@ -69,8 +69,6 @@ def move_tiles(window, tiles, clock, direction):
             delta = (-MOVE_VEL, 0)
             boundary_check = lambda tile: tile.col == 0
             get_next_tile = lambda tile: tiles.get(f"{tile.row}{tile.col - 1}")
-            merge_check = lambda tile, next_tile: tile.x > next_tile.x + MOVE_VEL
-            move_check = (lambda tile, next_tile: tile.x > next_tile.x + RECT_WIDTH + MOVE_VEL)
             ceil = True
 
         case "right":
@@ -79,8 +77,6 @@ def move_tiles(window, tiles, clock, direction):
             delta = (MOVE_VEL, 0)
             boundary_check = lambda tile: tile.col == COLS - 1
             get_next_tile = lambda tile: tiles.get(f"{tile.row}{tile.col + 1}")
-            merge_check = lambda tile, next_tile: tile.x < next_tile.x - MOVE_VEL
-            move_check = (lambda tile, next_tile: tile.x + RECT_WIDTH + MOVE_VEL < next_tile.x)
             ceil = False
             
         case "up":
@@ -89,8 +85,6 @@ def move_tiles(window, tiles, clock, direction):
             delta = (0, -MOVE_VEL)
             boundary_check = lambda tile: tile.row == 0
             get_next_tile = lambda tile: tiles.get(f"{tile.row - 1}{tile.col}")
-            merge_check = lambda tile, next_tile: tile.y > next_tile.y + MOVE_VEL
-            move_check = (lambda tile, next_tile: tile.y > next_tile.y + RECT_HEIGHT + MOVE_VEL)
             ceil = True
 
         case "down":
@@ -99,8 +93,6 @@ def move_tiles(window, tiles, clock, direction):
             delta = (0, MOVE_VEL)
             boundary_check = lambda tile: tile.row == ROWS - 1
             get_next_tile = lambda tile: tiles.get(f"{tile.row + 1}{tile.col}")
-            merge_check = lambda tile, next_tile: tile.y < next_tile.y - MOVE_VEL
-            move_check = (lambda tile, next_tile: tile.y + RECT_HEIGHT + MOVE_VEL < next_tile.y)
             ceil = False
 
     while updated:
@@ -115,24 +107,21 @@ def move_tiles(window, tiles, clock, direction):
             next_tile = get_next_tile(tile)
             if not next_tile:
                 tile.move(delta)
-            elif (
-                tile.value == next_tile.value
-                and tile not in blocks
-                and next_tile not in blocks
-            ):
-                if merge_check(tile, next_tile):
-                    tile.move(delta)
-                else:
-                    next_tile.update_value(next_tile.value * 2)
-                    sorted_tiles.pop(i)
-                    blocks.add(next_tile)
-            elif move_check(tile, next_tile):
-                tile.move(delta)
+                updated = True
+            elif tile.value == next_tile.value and next_tile not in blocks:
+                # Merge tiles
+                next_tile.update_value(next_tile.value * 2)
+                sorted_tiles.pop(i)
+                blocks.add(next_tile)
+                updated = True
             else:
-                continue
+                # Move tile
+                if (direction in ["left", "right"] and abs(tile.x - next_tile.x) <= MOVE_VEL) or \
+                   (direction in ["up", "down"] and abs(tile.y - next_tile.y) <= MOVE_VEL):
+                    tile.move(delta)
+                    updated = True
 
             tile.set_pos(ceil)
-            updated = True
 
         update_tiles(window, tiles, sorted_tiles)
 
