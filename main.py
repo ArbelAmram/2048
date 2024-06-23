@@ -20,6 +20,7 @@ FONT_COLOR = (119, 110, 101)
 
 FONT = pygame.font.SysFont("comicsans", 60, bold=True)
 MOVE_VEL = 20
+WINNING_TILE = 2048
 
 WINDOW = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption("2048")
@@ -198,12 +199,27 @@ def move_tiles(window, tiles, clock, direction):
 
 
 def end_move(tiles):
-    if len(tiles) == 16:
+    if any(tile.value == WINNING_TILE for tile in tiles.values()):
+        return "won"
+
+    if len(tiles) == 16 and not check_game_over(tiles):
         return "lost"
 
     row, col = get_random_pos(tiles)
     tiles[f"{row}{col}"] = Tile(random.choice([2, 4]), row, col)
     return "continue"
+
+
+def check_game_over(tiles):
+    for tile in tiles.values():
+        row, col = tile.row, tile.col
+        for delta in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
+            new_row, new_col = row + delta[0], col + delta[1]
+            if 0 <= new_row < ROWS and 0 <= new_col < COLS:
+                next_tile = tiles.get(f"{new_row}{new_col}")
+                if not next_tile or next_tile.value == tile.value:
+                    return False
+    return True
 
 
 def update_tiles(window, tiles, sorted_tiles):
@@ -223,6 +239,16 @@ def generate_tiles():
     return tiles
 
 
+def display_message(window, message):
+    window.fill(BACKGROUND_COLOR)
+    text = FONT.render(message, 1, FONT_COLOR)
+    window.blit(
+        text,
+        (WIDTH / 2 - text.get_width() / 2, HEIGHT / 2 - text.get_height() / 2),
+    )
+    pygame.display.update()
+
+
 def main(window):
     clock = pygame.time.Clock()
     run = True
@@ -239,13 +265,24 @@ def main(window):
 
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_LEFT:
-                    move_tiles(window, tiles, clock, "left")
+                    result = move_tiles(window, tiles, clock, "left")
                 if event.key == pygame.K_RIGHT:
-                    move_tiles(window, tiles, clock, "right")
+                    result = move_tiles(window, tiles, clock, "right")
                 if event.key == pygame.K_UP:
-                    move_tiles(window, tiles, clock, "up")
+                    result = move_tiles(window, tiles, clock, "up")
                 if event.key == pygame.K_DOWN:
-                    move_tiles(window, tiles, clock, "down")
+                    result = move_tiles(window, tiles, clock, "down")
+
+                if result == "won":
+                    display_message(window, "You Win!")
+                    pygame.time.delay(3000)
+                    run = False
+                    break
+                elif result == "lost":
+                    display_message(window, "Game Over")
+                    pygame.time.delay(3000)
+                    run = False
+                    break
 
         draw(window, tiles)
 
