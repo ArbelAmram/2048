@@ -1,12 +1,13 @@
 import pygame
 from design import *
-from game import *
+from game import Game
 
 def main(window):
     clock = pygame.time.Clock()
+    game = Game(window)
     run = True
 
-    tiles = generate_tiles()
+    tiles = game.generate_tiles()
 
     while run:
         clock.tick(FPS)
@@ -18,29 +19,30 @@ def main(window):
 
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_LEFT:
-                    result = move_tiles(window, tiles, clock, "left")
+                    result = game.move_tiles("left")
                 if event.key == pygame.K_RIGHT:
-                    result = move_tiles(window, tiles, clock, "right")
+                    result = game.move_tiles("right")
                 if event.key == pygame.K_UP:
-                    result = move_tiles(window, tiles, clock, "up")
+                    result = game.move_tiles("up")
                 if event.key == pygame.K_DOWN:
-                    result = move_tiles(window, tiles, clock, "down")
+                    result = game.move_tiles("down")
 
                 if result == "won":
-                    display_message(window, "You Win!")
+                    game.display_message("You Win!")
                     pygame.time.delay(3000)
                     run = False
                     break
                 elif result == "lost":
-                    display_message(window, "Game Over")
+                    game.display_message("Game Over")
                     pygame.time.delay(3000)
                     run = False
                     break
 
-        draw(window, tiles)
+        game.draw()
 
     pygame.quit()
 
-
 if __name__ == "__main__":
-    main(WINDOW)
+    window = pygame.display.set_mode((WIDTH, HEIGHT))
+    pygame.display.set_caption("2048")
+    main(window)
