@@ -1,13 +1,11 @@
 import pygame
 from design import *
-from game import Game
+from core.game import Game
 
 def main(window):
     clock = pygame.time.Clock()
     game = Game(window)
     run = True
-
-    tiles = game.generate_tiles()
 
     while run:
         clock.tick(FPS)
