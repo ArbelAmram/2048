@@ -1,7 +1,7 @@
 import pygame
 import math
 
-from design import *
+from assets.design import *
 
 class Tile:
     COLORS = [

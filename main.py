@@ -1,5 +1,5 @@
 import pygame
-from design import *
+from assets.design import *
 from core.game import Game
 
 def main(window):

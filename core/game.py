@@ -1,7 +1,7 @@
 import pygame
 import random
 from core.tile import Tile
-from design import *
+from assets.design import *
 
 # Initialize Pygame
 pygame.init()
