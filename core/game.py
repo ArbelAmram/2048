@@ -9,7 +9,7 @@ pygame.init()
 # Constants
 FONT = pygame.font.SysFont("comicsans", 60, bold=True)
 MOVE_VEL = 20
-WINNING_TILE = 16
+WINNING_TILE = 2048
 
 class Game:
     def __init__(self, window):
