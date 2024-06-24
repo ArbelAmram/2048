@@ -17,26 +17,26 @@ def start_game(window):
 
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_LEFT:
-                    result = game.move_tiles("left")
+                    result = game.move_tiles_in_direction("left")
                 if event.key == pygame.K_RIGHT:
-                    result = game.move_tiles("right")
+                    result = game.move_tiles_in_direction("right")
                 if event.key == pygame.K_UP:
-                    result = game.move_tiles("up")
+                    result = game.move_tiles_in_direction("up")
                 if event.key == pygame.K_DOWN:
-                    result = game.move_tiles("down")
+                    result = game.move_tiles_in_direction("down")
 
                 if result == "won":
-                    game.display_message("You Win!")
+                    game.show_message("You Win!")
                     pygame.time.delay(3000)
                     run = False
                     break
                 elif result == "lost":
-                    game.display_message("Game Over")
+                    game.show_message("Game Over")
                     pygame.time.delay(3000)
                     run = False
                     break
 
-        game.draw()
+        game.draw_game()
 
     pygame.quit()
 
