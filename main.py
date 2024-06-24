@@ -2,7 +2,7 @@ import pygame
 from assets.design import *
 from core.game import Game
 
-def main(window):
+def start_game(window):
     clock = pygame.time.Clock()
     game = Game(window)
     run = True
@@ -43,4 +43,4 @@ def main(window):
 if __name__ == "__main__":
     window = pygame.display.set_mode((WIDTH, HEIGHT))
     pygame.display.set_caption("2048")
-    main(window)
+    start_game(window)
