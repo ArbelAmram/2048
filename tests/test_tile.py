@@ -27,7 +27,7 @@ class TestTile(unittest.TestCase):
     def test_set_pos(self):
         """Test if the tile sets its position correctly."""
         self.tile.move((100, 100))
-        self.tile.set_pos(100, 100)
+        self.tile.update_position()
         self.assertEqual(self.tile.row, 1, "Tile row should be 1 after moving down by 100.")
         self.assertEqual(self.tile.col, 1, "Tile column should be 1 after moving right by 100.")
 

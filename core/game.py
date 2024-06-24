@@ -20,14 +20,14 @@ class Game:
     def draw_grid(self):
         """Draw the game grid."""
         for row in range(1, ROWS):
-            y = row * RECT_HEIGHT
+            y = row * TILE_HEIGHT
             pygame.draw.line(self.window, OUTLINE_COLOR, (0, y), (WIDTH, y), OUTLINE_THICKNESS)
 
         for col in range(1, COLS):
-            x = col * RECT_WIDTH
+            x = col * TILE_WIDTH
             pygame.draw.line(self.window, OUTLINE_COLOR, (x, 0), (x, HEIGHT), OUTLINE_THICKNESS)
 
-        pygame.draw.rect(self.window, OUTLINE_COLOR, (0, 0, WIDTH, HEIGHT), OUTLINE_THICKNESS)
+        pygame.draw.rect(self.window, OUTLINE_COLOR, (0, 0, HEIGHT, WIDTH), OUTLINE_THICKNESS)
 
     def draw_game(self):
         """Draw the game window and all tiles."""
@@ -67,7 +67,7 @@ class Game:
                 "is_boundary_tile": lambda tile: tile.col == 0,
                 "get_adjacent_tile": lambda tile: self.tiles_dict.get(f"{tile.row}{tile.col - 1}"),
                 "can_merge_with_adjacent_tile": lambda tile, next_tile: tile.x > next_tile.x + MOVE_VELOCITY,
-                "can_move_to_adjacent_tile": lambda tile, next_tile: tile.x > next_tile.x + RECT_WIDTH + MOVE_VELOCITY,
+                "can_move_to_adjacent_tile": lambda tile, next_tile: tile.x > next_tile.x + TILE_WIDTH + MOVE_VELOCITY,
                 "ceil": True
             },
             "right": {
@@ -75,7 +75,7 @@ class Game:
                 "is_boundary_tile": lambda tile: tile.col == COLS - 1,
                 "get_adjacent_tile": lambda tile: self.tiles_dict.get(f"{tile.row}{tile.col + 1}"),
                 "can_merge_with_adjacent_tile": lambda tile, next_tile: tile.x < next_tile.x - MOVE_VELOCITY,
-                "can_move_to_adjacent_tile": lambda tile, next_tile: tile.x + RECT_WIDTH + MOVE_VELOCITY < next_tile.x,
+                "can_move_to_adjacent_tile": lambda tile, next_tile: tile.x + TILE_WIDTH + MOVE_VELOCITY < next_tile.x,
                 "ceil": False
             },
             "up": {
@@ -83,7 +83,7 @@ class Game:
                 "is_boundary_tile": lambda tile: tile.row == 0,
                 "get_adjacent_tile": lambda tile: self.tiles_dict.get(f"{tile.row - 1}{tile.col}"),
                 "can_merge_with_adjacent_tile": lambda tile, next_tile: tile.y > next_tile.y + MOVE_VELOCITY,
-                "can_move_to_adjacent_tile": lambda tile, next_tile: tile.y > next_tile.y + RECT_HEIGHT + MOVE_VELOCITY,
+                "can_move_to_adjacent_tile": lambda tile, next_tile: tile.y > next_tile.y + TILE_HEIGHT + MOVE_VELOCITY,
                 "ceil": True
             },
             "down": {
@@ -91,7 +91,7 @@ class Game:
                 "is_boundary_tile": lambda tile: tile.row == ROWS - 1,
                 "get_adjacent_tile": lambda tile: self.tiles_dict.get(f"{tile.row + 1}{tile.col}"),
                 "can_merge_with_adjacent_tile": lambda tile, next_tile: tile.y < next_tile.y - MOVE_VELOCITY,
-                "can_move_to_adjacent_tile": lambda tile, next_tile: tile.y + RECT_HEIGHT + MOVE_VELOCITY < next_tile.y,
+                "can_move_to_adjacent_tile": lambda tile, next_tile: tile.y + TILE_HEIGHT + MOVE_VELOCITY < next_tile.y,
                 "ceil": False
             }
         }
@@ -122,7 +122,7 @@ class Game:
                 else:
                     continue
 
-                tile.set_pos(RECT_WIDTH, RECT_HEIGHT, config["ceil"])
+                tile.update_position(config["ceil"])
                 updated = True
 
             self.refresh_tiles(sorted_tiles)
@@ -139,7 +139,7 @@ class Game:
 
         if len(self.tiles_dict) < ROWS * COLS:
             row, col = self.get_random_position()
-            self.tiles_dict[f"{row}{col}"] = Tile(random.choice([2, 4]), row, col, RECT_WIDTH, RECT_HEIGHT)
+            self.tiles_dict[f"{row}{col}"] = Tile(random.choice([2, 4]), row, col, TILE_WIDTH, TILE_HEIGHT)
 
         return "continue"
 
@@ -155,7 +155,7 @@ class Game:
         tiles_dict = {}
         for _ in range(2):
             row, col = self.get_random_position()
-            tiles_dict[f"{row}{col}"] = Tile(2, row, col, RECT_WIDTH, RECT_HEIGHT)
+            tiles_dict[f"{row}{col}"] = Tile(2, row, col, TILE_WIDTH, TILE_HEIGHT)
         return tiles_dict
 
     def show_message(self, message):

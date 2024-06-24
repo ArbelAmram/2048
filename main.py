@@ -41,6 +41,6 @@ def start_game(window):
     pygame.quit()
 
 if __name__ == "__main__":
-    window = pygame.display.set_mode((WIDTH, HEIGHT))
+    window = pygame.display.set_mode((HEIGHT, WIDTH))
     pygame.display.set_caption("2048")
     start_game(window)
