@@ -121,10 +121,8 @@ If you have any questions or suggestions, feel free to reach out:
 
 ### Acknowledgments
 
-- Inspiration:
-    * [Make 2048 In Python](https://www.youtube.com/watch?v=6ZyylFcjfIg&t=482s)
-- Resources:
-    * [Badges](https://img.shields.io)
+- Inspiration: [Make 2048 In Python](https://www.youtube.com/watch?v=6ZyylFcjfIg&t=482s)
+- Resources: [Badges](https://img.shields.io)
 
 ### License
 
