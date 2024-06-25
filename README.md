@@ -1,7 +1,7 @@
 # Python 2048 Game with Pygame
 
-![Python](https://img.shields.io/badge/python-3.x-blue.svg)
-![Pygame](https://img.shields.io/badge/pygame-2.x-green.svg)
+![Python](https://img.shields.io/badge/python-3.12-blue.svg)
+![Pygame](https://img.shields.io/badge/pygame-2.1-green.svg)
 ![License](https://img.shields.io/badge/license-MIT-black.svg)
 
 ### Overview
@@ -10,7 +10,7 @@ The goal of the game is to combine numbered tiles on a grid to create a tile wit
 The game includes intuitive controls and a graphical interface built with Pygame, offering a fun and interactive experience for players. </br>
 Dive into the world of 2048 and challenge yourself with this Python implementation!</br>
 
-### Video Demonstration
+#### Video Demonstration
 
 Watch a demo of the project [here](https://github.com/arbelamram/2048/assets/51449659/b3046508-d94f-406c-91e1-7957a5153954)
 
@@ -34,7 +34,7 @@ Watch a demo of the project [here](https://github.com/arbelamram/2048/assets/514
 ### Technologies and tools
 - **Programming Language:** Python
 - **Library:** Pgame
-- **Testing:** PyTest
+- **Testing:** Unittest
 
 ### Object-Oriented Programming (OOP)
 - **Encapsulation:**
@@ -81,7 +81,7 @@ Watch a demo of the project [here](https://github.com/arbelamram/2048/assets/514
 
 1. **Start the Game**:
     ```sh
-    python game.py
+    python main.py
     ```
 
 2. **Controls**:
@@ -118,7 +118,6 @@ Please fork the repository, create a feature branch, and submit a pull request f
 If you have any questions or suggestions, feel free to reach out:
 
 - Email: [ArbelAmram@github.com](mailto:arbelamram@github.com)
-- GitHub: [https://github.com/ArbelAmram](https://github.com/ArbelAmram)
 
 ### Acknowledgments
 
