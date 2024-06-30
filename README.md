@@ -5,7 +5,7 @@
 ![License](https://img.shields.io/badge/license-MIT-black.svg)
 
 ### Overview
-This project is a Python implementation of the popular 2048 game using the Pygame library for graphical interface.</br> 
+This project is a Python implementation of the popular 2048 game using the Pygame library for the graphical interface.</br> 
 The goal of the game is to combine numbered tiles on a grid to create a tile with the number 2048. </br>
 The game includes intuitive controls and a graphical interface built with Pygame, offering a fun and interactive experience for players. </br>
 Dive into the world of 2048 and challenge yourself with this Python implementation!</br>
@@ -38,7 +38,7 @@ Watch a demo of the project [here](https://github.com/arbelamram/2048/assets/514
 
 ### Object-Oriented Programming (OOP)
 - **Encapsulation:**
-  The `Game` class encapsulates all the game-related attributes and methods which helps in managing the game state and behavior.
+  The `Game` class encapsulates all the game-related attributes and methods that help in managing the game state and behavior.
   
 - **Modularity:**
   The code is divided into several methods within the `Game` class, each responsible for a specific functionality. This modularity improves code readability, maintainability, and reusability.
@@ -121,7 +121,6 @@ If you have any questions or suggestions, feel free to reach out:
 
 ### Acknowledgments
 
-- Inspiration: [Make 2048 In Python](https://www.youtube.com/watch?v=6ZyylFcjfIg&t=482s)
 - Resources: [Badges](https://img.shields.io)
 
 ### License
